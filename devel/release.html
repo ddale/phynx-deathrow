@@ -109,15 +109,11 @@ python setup.py sdist --formats=zip,gztar</pre>
 </div>
 <p>This will create the tgz and zip files that can be uploaded at the
 <a class="reference external" href="github.com/darrendale/phynx">phynx project page</a> by selecting the &#8220;Downloads&#8221; button.</p>
-<p>You can create a source distribution without uploading by doing:</p>
-<div class="highlight-python"><pre>python setup.py sdist --formats=zip,gztar</pre>
-</div>
-<p>This creates a source distribution in the <tt class="file docutils literal"><span class="pre">dist/</span></tt> directory.</p>
 </div>
 <div class="section" id="creating-windows-installers">
 <h2>Creating Windows Installers<a class="headerlink" href="#creating-windows-installers" title="Permalink to this headline">¶</a></h2>
 <p>Open a DOS window, cd into the phynx source directory and run:</p>
-<div class="highlight-python"><pre>python setup.py bdist_msi upload --sign</pre>
+<div class="highlight-python"><pre>python setup.py bdist_msi</pre>
 </div>
 </div>
 <div class="section" id="building-phynx-documentation">
@@ -131,10 +127,10 @@ sphinxtogithub _build/html</pre>
 <p>which will produce the html output and save it in <tt class="file docutils literal"><span class="pre">_build/sphinx/html</span></tt>.</p>
 <p>To upload the documentation to the phynx project page:</p>
 <div class="highlight-python"><pre>cd ..
-cp -r _build/html ..
+cp -rf doc/_build/html ../
+git clean -fxd
 git checkout gh-pages
-cp -rf ../html/* .
-git add .
+cp -rf doc/_build/html/* .
 git commit -a -m "update documentation for version x"
 git push</pre>
 </div>
