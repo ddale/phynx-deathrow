@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Releases &mdash; phynx v0.10.96 documentation</title>
+    <title>Releases &mdash; phynx v0.11.0 documentation</title>
     <link rel="stylesheet" href="../static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.10.96',
+        VERSION:     '0.11.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../static/jquery.js"></script>
     <script type="text/javascript" src="../static/underscore.js"></script>
     <script type="text/javascript" src="../static/doctools.js"></script>
-    <link rel="top" title="phynx v0.10.96 documentation" href="../index.html" />
+    <link rel="top" title="phynx v0.11.0 documentation" href="../index.html" />
     <link rel="up" title="Developer’s Guide" href="index.html" />
     <link rel="next" title="Phynx license" href="license.html" />
     <link rel="prev" title="Documenting Phynx" href="documenting_phynx.html" /> 
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="documenting_phynx.html" title="Documenting Phynx"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">phynx v0.10.96 documentation</a> &raquo;</li>
+        <li><a href="../index.html">phynx v0.11.0 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Developer&#8217;s Guide</a> &raquo;</li> 
       </ul>
     </div>
@@ -91,7 +91,7 @@
   <div class="section" id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
 <p>Before creating a release, the version number needs to be updated in
-<cite>phynx/version.py</cite>. Then Phynx needs to be installed either with:</p>
+<tt class="file docutils literal"><span class="pre">phynx/version.py</span></tt>. Then Phynx needs to be installed either with:</p>
 <div class="highlight-python"><pre>python setup.py install</pre>
 </div>
 <p>or:</p>
@@ -105,46 +105,40 @@ documentation.</p>
 <p>Phynx is distributed as a source release for Linux and OS-X. To create
 a source release, just do:</p>
 <div class="highlight-python"><pre>python setup.py register
-python setup.py sdist --formats=zip,gztar upload --sign</pre>
+python setup.py sdist --formats=zip,gztar</pre>
 </div>
-<p>This will create the tgz source file and upload it to the Python
-Package Index. Uploading to PyPI requires a .pypirc file in your home
-directory, something like:</p>
-<div class="highlight-python"><pre>[server-login]
-username: &lt;username&gt;
-password: &lt;password&gt;</pre>
-</div>
+<p>This will create the tgz and zip files that can be uploaded at the
+<a class="reference external" href="github.com/darrendale/phynx">phynx project page</a> by selecting the &#8220;Downloads&#8221; button.</p>
 <p>You can create a source distribution without uploading by doing:</p>
-<div class="highlight-python"><pre>python setup.py sdist</pre>
+<div class="highlight-python"><pre>python setup.py sdist --formats=zip,gztar</pre>
 </div>
-<p>This creates a source distribution in the <cite>dist/</cite> directory.</p>
+<p>This creates a source distribution in the <tt class="file docutils literal"><span class="pre">dist/</span></tt> directory.</p>
 </div>
 <div class="section" id="creating-windows-installers">
 <h2>Creating Windows Installers<a class="headerlink" href="#creating-windows-installers" title="Permalink to this headline">¶</a></h2>
 <p>Open a DOS window, cd into the phynx source directory and run:</p>
-<div class="highlight-python"><pre>python setup.py bdist_wininst</pre>
+<div class="highlight-python"><pre>python setup.py bdist_msi upload --sign</pre>
 </div>
 </div>
 <div class="section" id="building-phynx-documentation">
 <h2>Building Phynx documentation<a class="headerlink" href="#building-phynx-documentation" title="Permalink to this headline">¶</a></h2>
 <p>When publishing a new release, the Phynx doumentation needs to be
 generated and published as well:</p>
-<div class="highlight-python"><pre>python setup.py build_sphinx</pre>
+<div class="highlight-python"><pre>cd doc
+make html
+sphinxtogithub _build/html</pre>
 </div>
-<p>which will produce the html output and save it in build/sphinx/html.
-Then run:</p>
-<div class="highlight-python"><pre>python setup.py build_sphinx -b latex
-cd build/sphinx/latex
-make all-pdf</pre>
+<p>which will produce the html output and save it in <tt class="file docutils literal"><span class="pre">_build/sphinx/html</span></tt>.</p>
+<p>To upload the documentation to the phynx project page:</p>
+<div class="highlight-python"><pre>cd ..
+cp -r _build/html ..
+git checkout gh-pages
+cp -rf ../html/* .
+git add .
+git commit -a -m "update documentation for version x"
+git push</pre>
 </div>
-<p>which will generate a pdf file in the latex directory. Finally, copy
-the <cite>html/</cite> directory and the <cite>latex/XPaXS.pdf</cite> file to the webserver.
-To upload the documentation to the Phynx website:</p>
-<div class="highlight-python"><pre>cd build/sphinx/html
-zip -r phynx *</pre>
-</div>
-<p>Then visit the <a class="reference external" href="http://pypi.python.org/pypi?%3Aaction=pkg_edit&amp;name=phynx">Phynx page at the Python Package Index</a> to upload the
-documentation.</p>
+<p>It may take a few minutes for the <a class="reference external" href="darrendale.github.com/phynx">documentation</a> to update.</p>
 </div>
 </div>
 
@@ -166,7 +160,7 @@ documentation.</p>
         <li class="right" >
           <a href="documenting_phynx.html" title="Documenting Phynx"
              >previous</a> |</li>
-        <li><a href="../index.html">phynx v0.10.96 documentation</a> &raquo;</li>
+        <li><a href="../index.html">phynx v0.11.0 documentation</a> &raquo;</li>
           <li><a href="index.html" >Developer&#8217;s Guide</a> &raquo;</li> 
       </ul>
     </div>
