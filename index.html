@@ -1,0 +1,163 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Phynx &mdash; phynx v0.10.96 documentation</title>
+    <link rel="stylesheet" href="static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.10.96',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <link rel="top" title="phynx v0.10.96 documentation" href="#" />
+    <link rel="next" title="User’s Guide" href="users/index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="users/index.html" title="User’s Guide"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">phynx v0.10.96 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Phynx</a><ul>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="users/index.html"
+                        title="next chapter">User&#8217;s Guide</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><h3>Download</h3>
+<p>Current version: <b>0.10.96</b></p>
+<p>Get Phynx from the <a href="http://pypi.python.org/pypi/phynx">
+Python Package Index</a>
+
+<h3>Questions? Suggestions? Contributions?</h3>
+
+<p>Visit the
+  <a href="https://launchpad.net/python-phynx">Phynx project page at launchpad</a>
+</p>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="phynx">
+<h1>Phynx<a class="headerlink" href="#phynx" title="Permalink to this headline">¶</a></h1>
+<p>Phynx is a high-level interface to <a class="reference external" href="http://www.hdfgroup.org/HDF5/">HDF5</a> files, using the h5py bindings
+to the the HDF5 library. HDF5 is an open-source binary format designed
+for scientific data. The structure of an HDF5 file is analogous to a
+file system, where you can designate an hierarchy of groups
+(directories) and datasets (files) to describe data of arbitrary
+complexity.</p>
+<p>Phynx offers an extensible, object-oriented interface designed to
+provide an easy, intuitive way to access and work with data stored in
+HDF5 files, whether you are an application developer or working with
+your own data in a script or the <a class="reference external" href="http://ipython.scipy.org">IPython</a> interactive interpreter. The
+preliminary focus of Phynx classes is to describe the multifaceted
+data produced at synchrotron an neutron facilities, but phynx can be
+used to provide rich interfaces to all kinds of data. Its organization
+is inspired in part by the <a class="reference external" href="http://www.nexusformat.org">NeXus</a> format. The NeXus project has the
+ambitious goal of providing a standard file hierarchy and component
+specification, to bridge the gap between experimental and theoretical
+research initiatives and improve our ability to share data. Phynx is
+designed to provide an interface that takes advantage of the power and
+expressiveness of the <a class="reference external" href="http://www.python.org">Python</a> language, the full capability of the HDF5
+standard, and support for the standard NeXus hierarchy and instrument
+definition, if so desired.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="users/index.html">User&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="users/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/exporting_data.html">Exporting data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="devel/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="devel/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devel/documenting_phynx.html">Documenting Phynx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devel/release.html">Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devel/license.html">Phynx license</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="users/index.html" title="User’s Guide"
+             >next</a> |</li>
+        <li><a href="#">phynx v0.10.96 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Darren Dale.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

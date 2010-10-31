@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Documenting Phynx &mdash; phynx v0.10.96 documentation</title>
+    <link rel="stylesheet" href="../static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.10.96',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="phynx v0.10.96 documentation" href="../index.html" />
+    <link rel="up" title="Developer’s Guide" href="index.html" />
+    <link rel="next" title="Releases" href="release.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="release.html" title="Releases"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">phynx v0.10.96 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Documenting Phynx</a><ul>
+<li><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li><a class="reference internal" href="#organization-of-phynx-s-documentation">Organization of Phynx&#8217;s documentation</a></li>
+<li><a class="reference internal" href="#formatting">Formatting</a><ul>
+<li><a class="reference internal" href="#docstrings">Docstrings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referring-to-phynx-documents">Referring to Phynx documents</a></li>
+<li><a class="reference internal" href="#internal-section-references">Internal section references</a></li>
+<li><a class="reference internal" href="#section-names-etc">Section names, etc</a></li>
+<li><a class="reference internal" href="#emacs-helpers">Emacs helpers</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="release.html"
+                        title="next chapter">Releases</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/devel/documenting_phynx.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="documenting-phynx">
+<span id="id1"></span><h1>Documenting Phynx<a class="headerlink" href="#documenting-phynx" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>The documentation for Phynx is generated from ReStructured Text
+using the <a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a> documentation generation tool. Sphinx-0.6.3 or later
+is required. Sphinx can be obtained through your package manager or by
+doing:</p>
+<div class="highlight-python"><pre>easy_install sphinx</pre>
+</div>
+<p>The documentation sources are found in the <tt class="file docutils literal"><span class="pre">doc/</span></tt> directory in
+the trunk. The output produced by Sphinx can be configured by editing
+the <tt class="file docutils literal"><span class="pre">conf.py</span></tt> file located in the <tt class="file docutils literal"><span class="pre">doc/</span></tt> directory. To
+build the users guide in html format, run from the main phynx
+directory:</p>
+<div class="highlight-python"><pre>python setup.py build_sphinx</pre>
+</div>
+<p>and the html will be produced in <cite>build/sphinx/html</cite>. To build the pdf
+file, <a class="reference external" href="http://www.latex-project.org/">LaTeX</a> (preferably <a class="reference external" href="http://www.tug.org/texlive/">TeX-Live</a>) and <a class="reference external" href="http://sourceforge.net/projects/dvipng/">dvipng</a> are required. Once
+these are installed, do:</p>
+<div class="highlight-python"><pre>python setup.py build_sphinx -b latex
+cd build/sphinx/latex
+make all-pdf</pre>
+</div>
+<p>To upload the documentation to the Phynx website:</p>
+<div class="highlight-python"><pre>cd build/sphinx/html
+zip -r phynx *</pre>
+</div>
+<p>Then visit the <a class="reference external" href="http://pypi.python.org/pypi?%3Aaction=pkg_edit&amp;name=phynx">Phynx page at the Python Package Index</a> to upload the
+documentation.</p>
+</div>
+<div class="section" id="organization-of-phynx-s-documentation">
+<h2>Organization of Phynx&#8217;s documentation<a class="headerlink" href="#organization-of-phynx-s-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The actual ReStructured Text files are kept in <tt class="file docutils literal"><span class="pre">doc/users</span></tt>,
+<tt class="file docutils literal"><span class="pre">doc/devel</span></tt>, <tt class="file docutils literal"><span class="pre">doc/api</span></tt> and <tt class="file docutils literal"><span class="pre">doc/faq</span></tt>. The main entry
+point is <tt class="file docutils literal"><span class="pre">doc/index.rst</span></tt>, which pulls in the <tt class="file docutils literal"><span class="pre">index.rst</span></tt>
+file for the users guide, developers guide, api reference, and faqs.
+The documentation suite is built as a single document in order to make
+the most effective use of cross referencing, we want to make
+navigating the Phynx documentation as easy as possible.</p>
+<p>Additional files can be added to the various guides by including their
+base file name (the .rst extension is not necessary) in the table of
+contents. It is also possible to include other documents through the
+use of an include statement, such as:</p>
+<div class="highlight-python"><pre>.. include:: ../../TODO</pre>
+</div>
+</div>
+<div class="section" id="formatting">
+<span id="formatting-phynx-docs"></span><h2>Formatting<a class="headerlink" href="#formatting" title="Permalink to this headline">¶</a></h2>
+<p>The Sphinx website contains plenty of <a class="reference external" href="http://sphinx.pocoo.org/contents.html">documentation</a> concerning ReST
+markup and working with Sphinx in general. Here are a few additional
+things to keep in mind:</p>
+<ul>
+<li><p class="first">Please familiarize yourself with the Sphinx directives for <a class="reference external" href="http://sphinx.pocoo.org/markup/inline.html">inline
+markup</a>. Phynx&#8217;s documentation makes heavy use of cross-referencing
+and other semantic markup. For example, when referring to external
+files, use the
+<tt class="docutils literal"><span class="pre">:file:</span></tt> directive.</p>
+</li>
+<li><p class="first">Function arguments and keywords should be referred to using the
+<em>emphasis</em> role. This will keep Phynx&#8217;s documentation consistant
+with Python&#8217;s documentation:</p>
+<div class="highlight-python"><pre>Here is a description of *argument*</pre>
+</div>
+<p>Please do not use the <cite>default role</cite>:</p>
+<div class="highlight-python"><pre>Please do not describe `argument` like this.</pre>
+</div>
+<p>nor the <tt class="docutils literal"><span class="pre">literal</span></tt> role:</p>
+<div class="highlight-python"><pre>Please do not describe ``argument`` like this.</pre>
+</div>
+</li>
+<li><p class="first">Sphinx does not support tables with column- or row-spanning cells
+for latex output. Such tables can not be used when documenting
+Phynx.</p>
+</li>
+<li><p class="first">Mathematical expressions can be rendered as png images in html, and
+in the usual way by latex. For example:</p>
+<p><tt class="docutils literal"><span class="pre">:math:`\sin(x_n^2)`</span></tt> yields: <img class="math" src="../images/math/7a2af107c60323c9f5bc4b7be160818e988c6259.png" alt="\sin(x_n^2)"/>, and:</p>
+<div class="highlight-python"><pre>.. math::
+
+  \int_{-\infty}^{\infty}\frac{e^{i\phi}}{1+x^2\frac{e^{i\phi}}{1+x^2}}</pre>
+</div>
+<p>yields:</p>
+<div class="math">
+<p><img src="../images/math/e491fb0d111d5a1da60dcf83cd8cc790b401da1d.png" alt="\int_{-\infty}^{\infty}\frac{e^{i\phi}}{1+x^2\frac{e^{i\phi}}{1+x^2}}" /></p>
+</div></li>
+<li><p class="first">Interactive IPython sessions can be illustrated in the documentation
+using the following directive:</p>
+<div class="highlight-python"><pre>.. sourcecode:: ipython
+
+    In [69]: lines = plot([1,2,3])</pre>
+</div>
+</li>
+</ul>
+<p>which would yield:</p>
+<blockquote>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [69]: </span><span class="n">lines</span> <span class="o">=</span> <span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</blockquote>
+<ul>
+<li><p class="first">Footnotes <a class="footnote-reference" href="#id3" id="id2">[1]</a> can be added using <tt class="docutils literal"><span class="pre">[#]_</span></tt>, followed later by:</p>
+<div class="highlight-python"><pre>.. rubric:: Footnotes
+
+.. [#]</pre>
+</div>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><p class="first last">For example.</p>
+</td></tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">Use the <em>note</em> and <em>warning</em> directives, sparingly, to draw
+attention to important comments:</p>
+<div class="highlight-python"><pre>.. note::
+   Here is a note</pre>
+</div>
+<p>yields:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">here is a note</p>
+</div>
+<p>also:</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">here is a warning</p>
+</div>
+</li>
+<li><p class="first">Use the <em>deprecated</em> directive when appropriate:</p>
+<div class="highlight-python"><pre>.. deprecated:: 0.98
+   This feature is obsolete, use something else.</pre>
+</div>
+<p>yields:</p>
+<p class="deprecated">
+<span class="versionmodified">Deprecated since version 0.98: </span>This feature is obsolete, use something else.</p>
+</li>
+<li><p class="first">Use the <em>versionadded</em> and <em>versionchanged</em> directives, which have
+similar syntax to the <em>deprecated</em> role:</p>
+<div class="highlight-python"><pre>.. versionadded:: 0.98
+   The transforms have been completely revamped.</pre>
+</div>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.98: </span>The transforms have been completely revamped.</p>
+</li>
+<li><p class="first">Use the <em>seealso</em> directive, for example:</p>
+<div class="highlight-python"><pre>.. seealso::
+
+   Using ReST :ref:`emacs-helpers`:
+      One example
+
+   A bit about :ref:`referring-to-phynx-docs`:
+      One more</pre>
+</div>
+<p>yields:</p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt>Using ResT <a class="reference internal" href="#emacs-helpers"><em>Emacs helpers</em></a>:</dt>
+<dd><p class="first last">One example</p>
+</dd>
+<dt>A bit about <a class="reference internal" href="#referring-to-phynx-docs"><em>Referring to Phynx documents</em></a>:</dt>
+<dd><p class="first last">One more</p>
+</dd>
+</dl>
+</div>
+</li>
+<li><p class="first">Please keep the <a class="reference internal" href="../glossary.html#glossary"><em>Glossary</em></a> in mind when writing documentation.
+You can create a references to a term in the glossary with the
+<tt class="docutils literal"><span class="pre">:term:</span></tt> role.</p>
+</li>
+<li><p class="first">The autodoc extension will handle index entries for the API, but
+additional entries in the <a class="reference external" href="http://sphinx.pocoo.org/markup/para.html#index-generating-markup">index</a> need to be explicitly added.</p>
+</li>
+</ul>
+<div class="section" id="docstrings">
+<h3>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
+<p>In addition to the aforementioned formatting suggestions:</p>
+<ul class="simple">
+<li>Please limit the text width of docstrings to 70 characters.</li>
+<li>Keyword arguments should be described using a definition list.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="referring-to-phynx-documents">
+<span id="referring-to-phynx-docs"></span><h2>Referring to Phynx documents<a class="headerlink" href="#referring-to-phynx-documents" title="Permalink to this headline">¶</a></h2>
+<p>In the documentation, you may want to include to a document in the
+Phynx src, e.g. a license file or an example.  When you include these
+files, include them using the <tt class="docutils literal"><span class="pre">literalinclude</span></tt> directive:</p>
+<div class="highlight-python"><pre>.. literalinclude:: ../examples/some_example.py</pre>
+</div>
+</div>
+<div class="section" id="internal-section-references">
+<span id="internal-section-refs"></span><h2>Internal section references<a class="headerlink" href="#internal-section-references" title="Permalink to this headline">¶</a></h2>
+<p>To maximize internal consistency in section labeling and references,
+use hyphen separated, descriptive labels for section references, eg:</p>
+<div class="highlight-python"><pre>.. _howto-webapp:</pre>
+</div>
+<p>and refer to it using  the standard reference syntax:</p>
+<div class="highlight-python"><pre>See :ref:`howto-webapp`</pre>
+</div>
+</div>
+<div class="section" id="section-names-etc">
+<h2>Section names, etc<a class="headerlink" href="#section-names-etc" title="Permalink to this headline">¶</a></h2>
+<p>For everything but top level chapters, please use <tt class="docutils literal"><span class="pre">Upper</span> <span class="pre">lower</span></tt> for
+section titles, eg <tt class="docutils literal"><span class="pre">Possible</span> <span class="pre">hangups</span></tt> rather than <tt class="docutils literal"><span class="pre">Possible</span>
+<span class="pre">Hangups</span></tt></p>
+</div>
+<div class="section" id="emacs-helpers">
+<span id="id4"></span><h2>Emacs helpers<a class="headerlink" href="#emacs-helpers" title="Permalink to this headline">¶</a></h2>
+<p>There is an emacs mode <a class="reference external" href="http://docutils.sourceforge.net/tools/editors/emacs/rst.el">rst.el</a> which
+automates many important ReST tasks like building and updateing
+table-of-contents, and promoting or demoting section headings.  Here
+is the basic <tt class="docutils literal"><span class="pre">.emacs</span></tt> configuration:</p>
+<div class="highlight-python"><pre>(require 'rst)
+(setq auto-mode-alist
+      (append '(("\\.txt$" . rst-mode)
+                ("\\.rst$" . rst-mode)
+                ("\\.rest$" . rst-mode)) auto-mode-alist))</pre>
+</div>
+<p>Some helpful functions:</p>
+<div class="highlight-python"><pre>C-c TAB - rst-toc-insert
+
+  Insert table of contents at point
+
+C-c C-u - rst-toc-update
+
+    Update the table of contents at point
+
+C-c C-l rst-shift-region-left
+
+    Shift region to the left
+
+C-c C-r rst-shift-region-right
+
+    Shift region to the right</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="release.html" title="Releases"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="../index.html">phynx v0.10.96 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Developer&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Darren Dale.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

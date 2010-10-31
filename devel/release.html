@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Releases &mdash; phynx v0.10.96 documentation</title>
+    <link rel="stylesheet" href="../static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.10.96',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="phynx v0.10.96 documentation" href="../index.html" />
+    <link rel="up" title="Developer’s Guide" href="index.html" />
+    <link rel="next" title="Phynx license" href="license.html" />
+    <link rel="prev" title="Documenting Phynx" href="documenting_phynx.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="license.html" title="Phynx license"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="documenting_phynx.html" title="Documenting Phynx"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">phynx v0.10.96 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Developer&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Releases</a><ul>
+<li><a class="reference internal" href="#creating-source-releases">Creating Source Releases</a></li>
+<li><a class="reference internal" href="#creating-windows-installers">Creating Windows Installers</a></li>
+<li><a class="reference internal" href="#building-phynx-documentation">Building Phynx documentation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="documenting_phynx.html"
+                        title="previous chapter">Documenting Phynx</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="license.html"
+                        title="next chapter">Phynx license</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/devel/release.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="releases">
+<h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
+<p>Before creating a release, the version number needs to be updated in
+<cite>phynx/version.py</cite>. Then Phynx needs to be installed either with:</p>
+<div class="highlight-python"><pre>python setup.py install</pre>
+</div>
+<p>or:</p>
+<div class="highlight-python"><pre>python setup.py develop</pre>
+</div>
+<p>in order proceed with building the release, so the package version
+numbers will be advertised correctly for the installers and the
+documentation.</p>
+<div class="section" id="creating-source-releases">
+<h2>Creating Source Releases<a class="headerlink" href="#creating-source-releases" title="Permalink to this headline">¶</a></h2>
+<p>Phynx is distributed as a source release for Linux and OS-X. To create
+a source release, just do:</p>
+<div class="highlight-python"><pre>python setup.py register
+python setup.py sdist --formats=zip,gztar upload --sign</pre>
+</div>
+<p>This will create the tgz source file and upload it to the Python
+Package Index. Uploading to PyPI requires a .pypirc file in your home
+directory, something like:</p>
+<div class="highlight-python"><pre>[server-login]
+username: &lt;username&gt;
+password: &lt;password&gt;</pre>
+</div>
+<p>You can create a source distribution without uploading by doing:</p>
+<div class="highlight-python"><pre>python setup.py sdist</pre>
+</div>
+<p>This creates a source distribution in the <cite>dist/</cite> directory.</p>
+</div>
+<div class="section" id="creating-windows-installers">
+<h2>Creating Windows Installers<a class="headerlink" href="#creating-windows-installers" title="Permalink to this headline">¶</a></h2>
+<p>Open a DOS window, cd into the phynx source directory and run:</p>
+<div class="highlight-python"><pre>python setup.py bdist_wininst</pre>
+</div>
+</div>
+<div class="section" id="building-phynx-documentation">
+<h2>Building Phynx documentation<a class="headerlink" href="#building-phynx-documentation" title="Permalink to this headline">¶</a></h2>
+<p>When publishing a new release, the Phynx doumentation needs to be
+generated and published as well:</p>
+<div class="highlight-python"><pre>python setup.py build_sphinx</pre>
+</div>
+<p>which will produce the html output and save it in build/sphinx/html.
+Then run:</p>
+<div class="highlight-python"><pre>python setup.py build_sphinx -b latex
+cd build/sphinx/latex
+make all-pdf</pre>
+</div>
+<p>which will generate a pdf file in the latex directory. Finally, copy
+the <cite>html/</cite> directory and the <cite>latex/XPaXS.pdf</cite> file to the webserver.
+To upload the documentation to the Phynx website:</p>
+<div class="highlight-python"><pre>cd build/sphinx/html
+zip -r phynx *</pre>
+</div>
+<p>Then visit the <a class="reference external" href="http://pypi.python.org/pypi?%3Aaction=pkg_edit&amp;name=phynx">Phynx page at the Python Package Index</a> to upload the
+documentation.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="license.html" title="Phynx license"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="documenting_phynx.html" title="Documenting Phynx"
+             >previous</a> |</li>
+        <li><a href="../index.html">phynx v0.10.96 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Developer&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Darren Dale.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>
