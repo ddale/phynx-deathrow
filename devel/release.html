@@ -104,8 +104,7 @@ documentation.</p>
 <h2>Creating Source Releases<a class="headerlink" href="#creating-source-releases" title="Permalink to this headline">¶</a></h2>
 <p>Phynx is distributed as a source release for Linux and OS-X. To create
 a source release, just do:</p>
-<div class="highlight-python"><pre>python setup.py register
-python setup.py sdist --formats=zip,gztar</pre>
+<div class="highlight-python"><pre>python setup.py sdist --formats=zip,gztar</pre>
 </div>
 <p>This will create the tgz and zip files that can be uploaded at the
 <a class="reference external" href="github.com/darrendale/phynx">phynx project page</a> by selecting the &#8220;Downloads&#8221; button.</p>
@@ -124,7 +123,7 @@ generated and published as well:</p>
 make html
 sphinxtogithub _build/html</pre>
 </div>
-<p>which will produce the html output and save it in <tt class="file docutils literal"><span class="pre">_build/sphinx/html</span></tt>.</p>
+<p>which will produce the html output and save it in <tt class="file docutils literal"><span class="pre">_build/html</span></tt>.</p>
 <p>To upload the documentation to the phynx project page:</p>
 <div class="highlight-python"><pre>cd ..
 cp -rf doc/_build/html ../
